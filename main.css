@@ -70,6 +70,7 @@ body{
 
 
 /* Index html */
+/*
 #collapseOne.collapse {
 	display: flex;
 	flex-direction: row;
@@ -80,16 +81,4 @@ body{
 	width: 200px;
 	height: auto;
 	border-radius: 20px;
-}
-
-.btn.btn-link{
-	border: 3px #563d7c solid;
-	border-radius: 2px;
-	background-color: #563d7c;
-}
-
-.btn.btn-link.collapsed{
-	text-decoration: none;
-	color: whitesmoke;
-	
-}
+}*/

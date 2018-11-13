@@ -71,13 +71,13 @@
 			<div class="filters">
 				<form class="form-inline row">
 					<div class="checkBox_position">
-						<input id="democrat" onclick="partyFilter()" type="checkbox" name="partyName" value="D"> Democrat
-						<input id="repu" onclick="partyFilter()" type="checkbox" name="partyName" value="R"> Republican
-						<input id="indepe" onclick="partyFilter()" type="checkbox" name="partyName" value="I"> Independent
+						<input id="democrat" onclick="filterAll()" type="checkbox" name="partyname" value="D"> Democrat
+						<input id="repu" onclick="filterAll()" type="checkbox" name="partyname" value="R"> Republican
+						<input id="indepe" onclick="filterAll()" type="checkbox" name="partyname" value="I"> Independent
 					</div>
 					<div class="filterPosition">
-						Filter by State : <select name="state" id="selectOpt">
-							<option value="state"></option>
+						Filter by State : <select name="state" id="selectOpt" value="All">
+							<option value="All"></option>
 						</select>
 					</div>
 				</form>
