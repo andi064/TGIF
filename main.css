@@ -1,0 +1,95 @@
+
+/* Header modification*/
+header{
+	background-color: #563d7c;
+
+}
+.emailPosition a{
+	background-color: #212529;
+	border: 2px solid #212529;
+	border-radius: 5px;
+	text-decoration: none;
+	padding: 7px;
+	color: whitesmoke;
+}
+.emailPosition{
+	margin-right: 50px;
+}
+
+.card-header h5{
+	text-decoration: none;
+}
+
+.tgifLogo img{
+	width: 80px;
+	height: auto; 
+	margin-left: 50px;
+}
+
+.headerTG h4{
+	color: white;
+}
+.positionTitle{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+/* End of header Modification*/
+
+/*Body in general, applies to all the htmls*/
+
+body{ 
+	/*background-image: url(images/background_opt_2.jpg);*/
+	background-color: whitesmoke;
+	background-size: cover;
+}
+
+.form-inline {
+	justify-content: space-around;
+}
+
+/* Footer in general, applies to all htmls */
+
+.theFooter{
+	background-color: #563d7c;
+	color: white;
+	text-align: center;
+	margin-top: 30px;
+	height: 40px;
+}
+
+/* Senate Html */
+
+.filters {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+/* Index html */
+#collapseOne.collapse {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#collapseOne.collapse img {
+	width: 200px;
+	height: auto;
+	border-radius: 20px;
+}
+
+.btn.btn-link{
+	border: 3px #563d7c solid;
+	border-radius: 2px;
+	background-color: #563d7c;
+}
+
+.btn.btn-link.collapsed{
+	text-decoration: none;
+	color: whitesmoke;
+	
+}
