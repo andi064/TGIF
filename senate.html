@@ -9,10 +9,10 @@
 </head>
 
 <body>
-	<div class="header">
+<div class="header">
 		<header>
 
-			<div class="positionTitle">
+			<div class="positionTitle ">
 			<div class="tgifLogo">
 				<img src="images/senate-logo-own.png" alt="tgif.logo">
 			</div>
@@ -27,17 +27,17 @@
 		</header>
 	</div>
 	<div class="container sticky-top ">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top nav-justified">
+		<nav class="navbar navbar-dark bg-dark sticky-top flex-row nav-fill ">
 			<!-- Navbar -->
 			<!--<a class="navbar-brand"><img src="images/senate-logo-own.png"></a>-->
-			<span class="navbar-text">TGIF</span>
+			<span class="navbar-text text-primary">TGIF</span>
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="index.html">Home</a>
+					<a class="nav-link text-primary" href="index.html">Home</a>
 				</li>
 			</ul>
 			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Congress 113
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -45,12 +45,30 @@
 					<a class="dropdown-item" href="#">Senate</a>
 				</div>
 			</div>
+			<div class="dropdown">
+				<button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Party Loyalty
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="senate_party_loyalty.html">Senate Party Loyalty</a>
+					<a class="dropdown-item" href="house_party_loyalty.html">House Party Loyalty</a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Attendance
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="senate_attendance.html">Senate Attendance</a>
+					<a class="dropdown-item" href="house_attendance.html">House Attendance</a>
+				</div>
+			</div>
 		</nav>
 	</div>
 	<!--Table container-->
 	<div class="container">
 		<!-- Here starts the collapsed text.-->
-		<div class="accordion" id="accordionExample">
+		<div class="accordion shadow-lg p-3 mb-5 bg-white rounded" id="accordionExample">
 			<div class="card">
 				<div class="card-header" id="headingOne">
 					<h5 class="mb-0">
@@ -74,7 +92,7 @@
 		</div>
 		<div class="container">
 			<div class="filters">
-				<form class="form-inline row">
+				<form class="form-inline row shadow-lg p-3 mb-5 bg-white rounded">
 					<div class="checkBox_position">
 						<input id="democrat" onclick="filterAll()" type="checkbox" name="partyName" value="D"> Democrat
 						<input id="repu" onclick="filterAll()" type="checkbox" name="partyName" value="R"> Republican
@@ -87,7 +105,7 @@
 					</div>
 				</form>
 			</div>
-			<table class="table table-dark table-striped table-hover">
+			<table class="table table-striped table-hover text-center shadow-lg p-3 mb-5 bg-white rounded">
 				<thead>
 					<tr>
 						<th>Members</th>
