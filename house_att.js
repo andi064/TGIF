@@ -1,12 +1,13 @@
 let statistics = {
-	numbers:{
-	"RepublicansNumber": 0,
-	"DemocratsNumber": 0,
-	"IndependentsNumber": 0,
-	"PercentageVotedDemoParty": 0,
-	"PercentageVotedRepuParty": 0,
-	"PercentageVotedIndepParty": 0,
-		
+	numbers: {
+		"RepublicansNumber": 0,
+		"DemocratsNumber": 0,
+		"IndependentsNumber": 0,
+		"PercentageVotedDemoParty": 0,
+		"PercentageVotedRepuParty": 0,
+		"PercentageVotedIndepParty": 0,
+		"TotalPercentage": 0,
+
 	},
 	"MostEngagedVotes": 0,
 	"LeastEngagedVotes": 0,
@@ -35,7 +36,6 @@ numberParty();
 
 statistics.numbers.DemocratsNumber = democratNumber.length;
 statistics.numbers.RepublicansNumber = republicanNumber.length;
-//statistics.numbers.IndependentsNumber = independentNumber.length;
 
 //------------------------------------------------------------------------------//
 
@@ -53,11 +53,7 @@ function average() {
 		if (members[i].party === "R") {
 			repubVotes.push(members[i].votes_with_party_pct)
 		}
-//		if (members[i].party === "I") {
-//			indepVotes.push(members[i].votes_with_party_pct)
-//		}
 	}
-	//	console.log(democratVotes, indepVotes, repubVotes);
 }
 
 average();
@@ -66,15 +62,12 @@ let sumD = democratVotes.reduce((previous, current) => current += previous);
 let avgD = sumD / democratNumber.length;
 let sumR = repubVotes.reduce((previous, current) => current += previous);
 let avgR = sumR / republicanNumber.length;
-//let sumI = indepVotes.reduce((previous, current) => current += previous);
-//let avgI = sumI / independentNumber.length;
 
 console.log(statistics);
 
-
+statistics.numbers.TotalPercentage = ((avgD+avgR)/2).toFixed(3) + "%";
 statistics.numbers.PercentageVotedDemoParty = avgD.toFixed(3) + "%";
 statistics.numbers.PercentageVotedRepuParty = avgR.toFixed(3) + "%";
-//statistics.numbers.PercentageVotedIndepParty = avgI.toFixed(3) + "%";
 
 //----------------------------------------------------------------------------//
 let mostPartic = [];
@@ -84,7 +77,7 @@ function participV() {
 		return v1.missed_votes_pct - v2.missed_votes_pct;
 	});
 
-	for (let i = 0; i <= (450 * 0.1); i++) {
+	for (let i = 0; i <= (460 * 0.1); i++) {
 		mostPartic.push(members[i]);
 	}
 }
@@ -104,7 +97,7 @@ function missV() {
 		return v1.missed_votes_pct - v2.missed_votes_pct;
 	});
 	let leastEng = members.reverse();
-	for (let i = 0; i <= (450 * 0.1); i++) {
+	for (let i = 0; i <= (460 * 0.1); i++) {
 		missedV.push(leastEng[i]);
 	}
 }
@@ -124,7 +117,7 @@ function loyalParty() {
 		return v1.votes_with_party_pct - v2.votes_with_party_pct;
 	});
 
-	for (let i = 0; i <= (450 * 0.1); i++) {
+	for (let i = 0; i <= (460 * 0.1); i++) {
 		loyalMembers.push(members[i]);
 	}
 }
@@ -132,7 +125,7 @@ loyalParty()
 
 console.table(mostPartic);
 
-statistics.MostEngagedVotes=mostPartic;
+statistics.MostEngagedVotes = mostPartic;
 
 //----------------------------------------------------------------------------//
 
@@ -144,7 +137,7 @@ function unLoyal() {
 		return v1.votes_with_party_pct - v2.votes_with_party_pct;
 	});
 	let leastEng = members.reverse();
-	for (let i = 0; i <= (105 * 0.1); i++) {
+	for (let i = 0; i <= (460 * 0.1); i++) {
 		unLoyalmember.push(leastEng[i]);
 	}
 }
@@ -162,7 +155,7 @@ function representatives() {
 	let tbody = document.getElementById("tbody_numbers");
 	let tr = document.createElement("tr");
 	let tr1 = document.createElement("tr");
-	let tr2 = document.createElement("tr"); 
+	let tr2 = document.createElement("tr");
 	let td = document.createElement("td");
 	let td1 = document.createElement("td");
 	let td2 = document.createElement("td");
@@ -178,50 +171,50 @@ function representatives() {
 	td3.append("Republicans");
 	td4.append(statistics.numbers.RepublicansNumber);
 	td5.append(statistics.numbers.PercentageVotedRepuParty);
-//	td6.append("Independents");
-//	td7.append(statistics.numbers.IndependentsNumber);
-//	td8.append(statistics.numbers.PercentageVotedIndepParty);
+	td6.append("Total");
+	td7.append(members.length);
+	td8.append(statistics.numbers.TotalPercentage);
 	tr.append(td, td1, td2);
 	tr1.append(td3, td4, td5);
-//	tr2.append(td6, td7, td8);
-	tbody.append(tr, tr1);
+	tr2.append(td6, td7, td8);
+	tbody.append(tr, tr1,tr2);
 
 }
 representatives();
 
 function leastEngaged() {
 
-   const myTable = document.getElementById("tbody_leastEngaged");
+	const myTable = document.getElementById("tbody_leastEngaged");
 
-   const members = statistics.LeastEngagedVotes;
+	const members = statistics.LeastEngagedVotes;
 
 
-   for (let i = 0; i < members.length; i++) {
+	for (let i = 0; i < members.length; i++) {
 
-           const row = document.createElement("tr");
-           row.insertCell().innerHTML = members[i].first_name;
-           row.insertCell().innerHTML = members[i].missed_votes;
-           row.insertCell().innerHTML = members[i].missed_votes_pct;
-           myTable.append(row);
-   }
+		const row = document.createElement("tr");
+		row.insertCell().innerHTML = members[i].first_name;
+		row.insertCell().innerHTML = members[i].missed_votes;
+		row.insertCell().innerHTML = members[i].missed_votes_pct;
+		myTable.append(row);
+	}
 }
 leastEngaged();
 
 function mostEngaged() {
 
-   const myTable = document.getElementById("tbody_mostEngaged");
+	const myTable = document.getElementById("tbody_mostEngaged");
 
-   const members = statistics.MostEngagedVotes;
+	const members = statistics.MostEngagedVotes;
 
 
-   for (let i = 0; i < members.length; i++) {
+	for (let i = 0; i < members.length; i++) {
 
-           const row = document.createElement("tr");
-           row.insertCell().innerHTML = members[i].first_name;
-           row.insertCell().innerHTML = members[i].missed_votes;
-           row.insertCell().innerHTML = members[i].missed_votes_pct;
-           myTable.append(row);
-   }
+		const row = document.createElement("tr");
+		row.insertCell().innerHTML = members[i].first_name;
+		row.insertCell().innerHTML = members[i].missed_votes;
+		row.insertCell().innerHTML = members[i].missed_votes_pct;
+		myTable.append(row);
+	}
 }
 mostEngaged();
 
