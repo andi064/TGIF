@@ -97,3 +97,13 @@ thead{
 	background-color: cornflowerblue;
 	color: whitesmoke;
 }
+
+
+#spiner, #sipner1{
+	display: flex;
+	justify-content: center;
+}
+
+#spiner2{
+margin-left:;
+}
